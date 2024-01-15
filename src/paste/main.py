@@ -302,3 +302,6 @@ async def get_languages() -> JSONResponse:
             detail=f"Error reading languages file: {e}",
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
+
+from prometheus_fastapi_instrumentator import Instrumentator
+Instrumentator().instrument(app).expose(app)
